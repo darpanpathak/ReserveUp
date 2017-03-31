@@ -1,0 +1,59 @@
+<ion-view view-title="RESERVEUP">
+  <ion-content class="home padding">
+    <form name="restroform" novalidate  ng-submit="restroform.$valid && submitRestro()">
+      <div class="list">
+        <label class="item item-input item-floating-label">
+            <span class="input-label">Restaurant Name</span>
+            <input type="text" placeholder="Restaurant Name" ng-model="rm.restroName" required>
+        </label>
+        <label class="item item-input item-floating-label">
+            <span class="input-label">Landmark</span>
+            <input type="text" placeholder="Landmark" ng-model="rm.landmark" required>
+        </label>
+        <label class="item item-input item-floating-label">
+            <span class="input-label">Sitting Capacity</span>
+            <input type="number" placeholder="Sitting Capacity" ng-model="rm.sittingCapacity" required>
+        </label>
+        <label class="item item-input item-floating-label">
+            <span class="input-label">Restaurant Email</span>
+            <input type="email" placeholder="Restaurant Email" ng-model="rm.email" required>
+        </label>
+        <label class="item item-input item-floating-label">
+            <span class="input-label">Restaurant Phone</span>
+            <input type="number" placeholder="Restaurant Phone" ng-model="rm.phone" required>
+        </label>
+        <label class="item item-input item-floating-label">
+            <span class="input-label">Full Address</span>
+            <textarea type="text" placeholder="Full Address" ng-model="rm.fullAddress" required></textarea>
+        </label>
+        <label class="item item-input item-select">
+            <div class="input-label">
+            Holiday 
+            </div>
+            <select ng-model="rm.holiday">
+                <option selected>Monday</option>
+                <option>Tuesday</option>
+                <option>Wednesday</option>
+                <option>Thursday</option>
+                <option>Friday</option>
+                <option>Saturday</option>
+                <option>Sunday</option>
+            </select>
+        </label>
+        <label class="item item-input item-floating-label">
+            <span class="input-label">Restaurant Photo</span>
+            <button ngf-select="Addfiletoanarray($files)" accept="image/*" ng-model="rm.file" required type="button">Select Files</button>
+            <ul>
+                <li ng-repeat="simg in selectedImages">{{simg[0].name}}</li>
+            </ul>
+           
+        </label>
+
+        <p ng-show="restroform.$invalid">* Please complete the form to enable this button</p>
+
+        <button class="button button-block button-positive" type="submit" ng-disabled="restroform.$invalid">SUBMIT DETAILS</button>
+
+      </div>
+    </form>
+  </ion-content>
+</ion-view>

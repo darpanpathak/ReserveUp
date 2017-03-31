@@ -1,0 +1,35 @@
+<ion-view view-title="RESERVEUP">
+
+  <!--<ion-nav-buttons side="left">
+    <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>-->
+
+  <ion-nav-buttons side="right">
+    <a class="button button-icon button-clear ion-log-in" ui-sref="app.create" menu-toggle="right">
+    </a>
+  </ion-nav-buttons>
+
+  <ion-content class="home">
+
+    <div class="list list-inset">
+      <label class="item item-input">
+        <i class="icon ion-search placeholder-icon"></i>
+        <input type="text" placeholder="Search (min 4 character...)" ng-model="query">
+      </label>
+    </div>
+    <div class="list">
+
+      <a ng-repeat="item in restros | filter:query" class="item item-thumbnail-left" ui-sref="app.details({id:item._id})">
+
+        <!--<img ng-src="{{ item.image ===undefined || item.image==="NA" ? "https://pbs.twimg.com/profile_images/600060188872155136/st4Sp6Aw.jpg" : "http://localhost:3005/uploadedFiles/" + item.image }}">-->
+        <img ng-src="http://foodie.delivision.in/app/images/restro_pics/{{item.image[0]}}" alt="image" />
+        <h2>{{ item.restroName }}</h2>
+        <h3>{{item.landmark }}</h3>
+        <h3>Closed on {{ item.holiday }}</h3>
+        <h3><i class="icon ion-android-contacts"></i> {{ item.sittingCapacity }}</h3>
+      </a>
+
+    </div>
+
+  </ion-content>
+</ion-view>

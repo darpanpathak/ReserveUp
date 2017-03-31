@@ -1,0 +1,76 @@
+/* Empty. Add your own CSS if you like */
+@font-face {
+font-family: Roboto;
+src: url("../fonts/Bariol.ttf");
+}
+
+body, span, button, h1, h2, h3, h4, h5, h6, p, ion-item, ion-title {
+font-family: 'Roboto' !important;
+}
+
+.account {
+  background: #222029;
+  padding-top:20%;
+}
+
+.account h1{
+    color: white;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.account .list{
+    margin-left:10px;
+    margin-right: 10px;
+}
+
+.account form{
+    text-align: center;
+}
+
+.account .item{
+    margin-top: 10px
+}
+
+.account .button{
+    margin-top:20px;
+    color: white !important;
+}
+
+.home{
+    background: #FFF;
+}
+
+.home .list{
+    background-color: transparent;
+}
+.home .list .item{
+    border: none;
+    border-bottom: 1px solid #ddd;
+    color: black;
+}
+
+.home .list .item i{
+    font-weight: normal !important;
+}
+
+.thumb{
+    height: 64px;
+}
+
+.slider {
+  max-height: 300px;
+  width: 100%;
+}
+.slider-slide {
+  color: #000;
+  background-color: #fff;
+  text-align: center;
+
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+  font-weight: 300;
+}
+
+.slider-slide img{
+    max-height: 300px;
+}
