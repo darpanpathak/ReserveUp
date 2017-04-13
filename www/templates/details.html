@@ -1,58 +1,57 @@
 <ion-view view-title="RESERVEUP">
-  <ion-content class="home">
+    <ion-content class="home">
 
-    <div class="list card">
+        <div class="list card">
 
-      <!--<div class="item item-image">
+            <!--<div class="item item-image">
         <img ng-src="http://restroapis.herokuapp.com/uploadedFiles/{{restro.image}}" />
       </div>-->
 
-      <ion-slide-box on-slide-changed="slideChanged(index)" show-pager='true' slide-interval="3000">
-        <ion-slide ng-repeat="img in restro.image">
-          <img ng-src="http://foodie.delivision.in/app/images/restro_pics/{{img}}" />
-        </ion-slide>
-      </ion-slide-box>
+            <ion-slide-box on-slide-changed="slideChanged(index)" show-pager='true' slide-interval="3000">
+                <ion-slide ng-repeat="img in restro.image">
+                    <img ng-src="http://foodie.delivision.in/app/images/restro_pics/{{img}}" />
+                </ion-slide>
+            </ion-slide-box>
 
-      <a class="item item-icon-left assertive">
-        <i class="icon ion-android-pin"></i>{{restro.fullAddress}}
-      </a>
-      <a class="item item-icon-left assertive">
-        <i class="icon ion-android-call"></i>{{restro.phone}}
-      </a>
+            <a class="item item-icon-left assertive">
+                <i class="icon ion-android-pin"></i>{{restro.fullAddress}}
+            </a>
+            <a class="item item-icon-left assertive">
+                <i class="icon ion-android-call"></i>{{restro.phone}}
+            </a>
 
-    </div>
+        </div>
 
-    <div class="list card">
-      <a class="item">Name : {{restro.restroName}} </a>
-      <a class="item">Address : {{restro.fullAddress}} </a>
-      <a class="item">Closed on : {{restro.holiday}} </a>
-      <a class="item">Sitting Capacity : {{restro.sittingCapacity}} </a>
-    </div>
+        <div class="list card">
+            <a class="item">Name : {{restro.restroName}} </a>
+            <a class="item">Address : {{restro.fullAddress}} </a>
+            <a class="item">Closed on : {{restro.holiday}} </a>
+            <a class="item">Sitting Capacity : {{restro.sittingCapacity - bookedSeat}} </a>
+        </div>
 
-    <form name="bookingform" ng-submit="bookRestro()">
-      <div class="list card">
-        <label class="item item-input item-floating-label">
+        <form name="bookingform" ng-submit="bookRestro()">
+            <div class="list card">
+                <label class="item item-input item-floating-label">
         <span class="input-label"t>Name</span>
         <input type="text" placeholder="Enter Your Name" ng-model="res.name">
       </label>
 
-        <label class="item item-input item-floating-label">
+                <label class="item item-input item-floating-label">
         <span class="input-label">Phone Number</span>
         <input type="number" placeholder="Phone Number" ng-model="res.phone">
       </label>
-        <label class="item item-input item-floating-label">
+                <label class="item item-input item-floating-label">
         <span class="input-label">Number of Person</span>
-        <input type="number" placeholder="Number of Person" name="sittingcap" ng-model="res.noofperson" max="{{restro.sittingCapacity}}">
+        <input type="number" placeholder="Number of Person" name="sittingcap" ng-model="res.noofperson" max="{{restro.sittingCapacity - bookedSeat}}">
           <p ng-show="bookingform.sittingcap.$invalid">* This should be lesser than sitting Sitting Capacity</p>
       </label>
-        <label class="item item-icon-left item-floating-label" ion-datetime-picker monday-first only-valid="{'after': 'today', 'inclusive': true}"
-          ng-model="res.bookingdatetime">
+                <label class="item item-icon-left item-floating-label" ion-datetime-picker monday-first only-valid="{'after': 'today', 'inclusive': true}" ng-model="res.bookingdatetime">
           <i class="icon ion-ios-calendar positive"></i> 
           <strong>{{res.bookingdatetime| date: "yyyy-MM-dd h:mm"}}</strong>
         </label>
-        <button class="button button-block button-positive" type="submit">BOOK NOW</button>
-      </div>
-    </form>
+                <button class="button button-block button-positive" type="submit">BOOK NOW</button>
+            </div>
+        </form>
 
-  </ion-content>
+    </ion-content>
 </ion-view>

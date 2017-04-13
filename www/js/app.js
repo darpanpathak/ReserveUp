@@ -22,7 +22,10 @@ angular.module('reserveup', ['ionic','ngFileUpload','ion-datetime-picker'])
   });
 })
 
-.config(function($stateProvider, $urlRouterProvider) {
+.config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
+
+$ionicConfigProvider.backButton.previousTitleText(false).text('');
+
   $stateProvider
 
     .state('app', {
