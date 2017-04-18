@@ -31,24 +31,26 @@
 
         <form name="bookingform" ng-submit="bookRestro()">
             <div class="list card">
-                <label class="item item-input item-floating-label">
-        <span class="input-label"t>Name</span>
-        <input type="text" placeholder="Enter Your Name" ng-model="res.name">
-      </label>
+                <label class="item item-icon-left item-floating-label" ion-datetime-picker monday-first only-valid="{'after': 'today', 'inclusive': true}" ng-model="res.bookingdatetime" ng-change="getsittingcap()">
+                    <i class="icon ion-ios-calendar positive"></i> 
+                    <strong>{{res.bookingdatetime| date: "yyyy-MM-dd h:mm"}}</strong>
+                </label>
 
                 <label class="item item-input item-floating-label">
-        <span class="input-label">Phone Number</span>
-        <input type="number" placeholder="Phone Number" ng-model="res.phone">
-      </label>
+                    <span class="input-label"t>Name</span>
+                    <input type="text" placeholder="Enter Your Name" ng-model="res.name">
+                </label>
+
                 <label class="item item-input item-floating-label">
-        <span class="input-label">Number of Person</span>
-        <input type="number" placeholder="Number of Person" name="sittingcap" ng-model="res.noofperson" max="{{restro.sittingCapacity - bookedSeat}}">
-          <p ng-show="bookingform.sittingcap.$invalid">* This should be lesser than sitting Sitting Capacity</p>
-      </label>
-                <label class="item item-icon-left item-floating-label" ion-datetime-picker monday-first only-valid="{'after': 'today', 'inclusive': true}" ng-model="res.bookingdatetime">
-          <i class="icon ion-ios-calendar positive"></i> 
-          <strong>{{res.bookingdatetime| date: "yyyy-MM-dd h:mm"}}</strong>
-        </label>
+                    <span class="input-label">Phone Number</span>
+                    <input type="number" placeholder="Phone Number" ng-model="res.phone">
+                </label>
+                <label class="item item-input item-floating-label">
+                    <span class="input-label">Number of Person</span>
+                    <input type="number" placeholder="Number of Person" name="sittingcap" ng-model="res.noofperson" max="{{restro.sittingCapacity - bookedSeat}}">
+                    <p ng-show="bookingform.sittingcap.$invalid">* This should be lesser than sitting Sitting Capacity</p>
+                </label>
+
                 <button class="button button-block button-positive" type="submit">BOOK NOW</button>
             </div>
         </form>

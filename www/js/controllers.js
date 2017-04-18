@@ -214,7 +214,7 @@ app.controller('detailsCtrl', function($scope, $stateParams, $http, $ionicSlideB
         method: 'GET',
         url: "http://restroapis.herokuapp.com/api/getRestroById/" + id
     }).then(function(response) {
-        debugger;
+
         $scope.restro = response.data.result[0];
         $scope.bookedSeat = response.data.pc;
         $ionicSlideBoxDelegate.update();
@@ -222,6 +222,19 @@ app.controller('detailsCtrl', function($scope, $stateParams, $http, $ionicSlideB
     }, function(err) {
         console.log(err);
     });
+
+    $scope.getsittingcap = function() {
+        var selecteddate = formatDate($scope.res.bookingdatetime);
+
+        $http({
+            method: 'GET',
+            url: "http://restroapis.herokuapp.com/api/getSittingCap/" + id + "/" + selecteddate.split(" ")[0]
+        }).then(function(response) {
+            $scope.bookedSeat = response.data.pc;
+        }, function(err) {
+            console.log(err);
+        });
+    }
 
     $scope.next = function() {
         $ionicSlideBoxDelegate.next();
