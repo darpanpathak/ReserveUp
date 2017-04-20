@@ -1,0 +1,14 @@
+<ion-view view-title="RESERVEUP">
+    <ion-content class="admindash">
+
+        <div class="card" ng-repeat="bl in bookinglist">
+            <div class="item item-text-wrap">
+                <h2>Restaurant : {{bl.restroName}}</h2>
+                <p>No of Bookings : {{bl.personCount}}</p>
+                <p>Time : {{bl.bookingdatetime}}</p>
+                <p>Name : {{bl.personName}}</p>
+                <p>Phone : {{bl.personPhone}}</p>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

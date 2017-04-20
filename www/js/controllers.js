@@ -121,6 +121,19 @@ app.controller('createCtrl', function($scope, $state, Upload, $http, $ionicLoadi
         $scope.selectedImages.push(sfile);
     }
 
+    $scope.bookinglist = [];
+    $scope.getbookigns = function() {
+        $http({
+            method: 'GET',
+            url: "http://restroapis.herokuapp.com/api/getbookings/30"
+        }).then(function(response) {
+            $scope.bookinglist = response.data;
+        }, function(err) {
+            console.log(err);
+        });
+    }
+    $scope.getbookigns();
+
     $scope.submitRestro = function() {
         $scope.uploadimg($scope.rm.file);
     }
@@ -256,6 +269,7 @@ app.controller('detailsCtrl', function($scope, $stateParams, $http, $ionicSlideB
             }
         }
         $scope.res.createdBy = "pathakdarpan77@gmail.com";
+        $scope.res.restroName = $scope.restro.restroName;
         $scope.res.bookingdatetime = formatDate($scope.res.bookingdatetime);
         $http.post('http://restroapis.herokuapp.com/api/submitbooking', $scope.res, config)
             .then(function(data) {

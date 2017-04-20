@@ -55,6 +55,26 @@ angular.module('reserveup', ['ionic', 'ngFileUpload', 'ion-datetime-picker'])
         }
     })
 
+    .state('app.admindash', {
+        url: '/admindashboard',
+        views: {
+            'menuContent': {
+                templateUrl: 'templates/admindashboard.html',
+                controller: 'createCtrl'
+            }
+        }
+    })
+
+    .state('app.bookinglist', {
+        url: '/bookinglist',
+        views: {
+            'menuContent': {
+                templateUrl: 'templates/bookinglist.html',
+                controller: 'createCtrl'
+            }
+        }
+    })
+
     .state('app.details', {
         url: '/details/:id',
         views: {
